@@ -1,3 +1,8 @@
+# Changes in thesis: 
+Added new Eigen3 library
+C++14 compiles 
+Extracts: MotionModel.txt, octaves.txt, State.txt for each execution 
+
 # ORB-SLAM3
 
 ### V1.0, December 22th, 2021
