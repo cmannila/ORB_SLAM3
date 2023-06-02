@@ -90,6 +90,9 @@ int main(int argc, char **argv)
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     ORB_SLAM3::System SLAM(argv[1],argv[2],ORB_SLAM3::System::MONOCULAR,false, 0, file_name);
+    ofstream fw1("/home/cm2113/workspace/ORB_SLAM3/octaves.txt", std::ofstream::trunc); 
+    ofstream fw3("/home/cm2113/workspace/ORB_SLAM3/MotionModel.txt", std::ofstream::trunc);
+    ofstream fw2("/home/cm2113/workspace/ORB_SLAM3/State.txt", std::ofstream::trunc);
     float imageScale = SLAM.GetImageScale();
 
     double t_resize = 0.f;
@@ -133,7 +136,7 @@ int main(int argc, char **argv)
             }
 
             // clahe
-            clahe->apply(im,im);
+            //clahe->apply(im,im);
 
 
             // cout << "mat type: " << im.type() << endl;

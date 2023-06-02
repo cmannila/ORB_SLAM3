@@ -1938,7 +1938,7 @@ void Tracking::Track()
             // you explicitly activate the "only tracking" mode.
             if(mState==OK)
             {
-
+                int MM = 1;     
                 // Local Mapping might have changed some MapPoints tracked in last frame
                 CheckReplacedInLastFrame();
 
@@ -1946,14 +1946,25 @@ void Tracking::Track()
                 {
                     Verbose::PrintMess("TRACK: Track with respect to the reference KF ", Verbose::VERBOSITY_DEBUG);
                     bOK = TrackReferenceKeyFrame();
+                    MM = 0; 
                 }
                 else
                 {
                     Verbose::PrintMess("TRACK: Track with motion model", Verbose::VERBOSITY_DEBUG);
                     bOK = TrackWithMotionModel();
-                    if(!bOK)
+                    if(!bOK){
                         bOK = TrackReferenceKeyFrame();
+                        MM = -1;
+                    }
                 }
+
+                ofstream fw3("/home/cm2113/workspace/ORB_SLAM3/MotionModel.txt", std::ofstream::app);  
+                if (fw3.is_open())
+                {
+                fw3 << to_string(MM) << std::endl;
+                fw3.close();
+                }
+                else cout << "Problem with MotionModel opening file";
 
 
                 if (!bOK)
