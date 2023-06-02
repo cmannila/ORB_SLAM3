@@ -483,7 +483,7 @@ Sophus::SE3f System::TrackMonocular(const cv::Mat &im, const double &timestamp, 
         } 
     }
 
-    ofstream fw1("/home/cm2113/workspace/ORB_SLAM3/octaves.txt", std::ofstream::app);  
+    ofstream fw1("octaves.txt", std::ofstream::app);  
     if (fw1.is_open())
     {
     for (int i = 0; i < num_octaves; i++) {
@@ -494,7 +494,7 @@ Sophus::SE3f System::TrackMonocular(const cv::Mat &im, const double &timestamp, 
     }
     else cout << "Problem with opening file";
 
-    ofstream fw2("/home/cm2113/workspace/ORB_SLAM3/State.txt", std::ofstream::app);  
+    ofstream fw2("State.txt", std::ofstream::app);  
     if (fw2.is_open())
     {
     fw2 << to_string(mTrackingState) << std::endl;

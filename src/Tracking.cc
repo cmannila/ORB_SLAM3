@@ -1958,7 +1958,7 @@ void Tracking::Track()
                     }
                 }
 
-                ofstream fw3("/home/cm2113/workspace/ORB_SLAM3/MotionModel.txt", std::ofstream::app);  
+                ofstream fw3("MotionModel.txt", std::ofstream::app);  
                 if (fw3.is_open())
                 {
                 fw3 << to_string(MM) << std::endl;
