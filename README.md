@@ -1,7 +1,7 @@
 # Changes in thesis: 
-Added new Eigen3 library
-C++14 compiles 
-Extracts: MotionModel.txt, octaves.txt, State.txt for each execution 
+Added new Eigen3 library and C++14 compiler 
+
+Extracts: MotionModel.txt, octaves.txt, State.txt for each execution - save seperatly! 
 
 # ORB-SLAM3
 
